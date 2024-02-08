@@ -11,7 +11,7 @@ export default function Home() {
     setPeople(people + variation)
   }
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = parseInt(event.target.value)
+    const newValue = parseFloat(event.target.value)
     setAmount(newValue)
   }
   function calculate(amount: number, people: number) {
