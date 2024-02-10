@@ -2,7 +2,8 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Plus, Minus } from "lucide-react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import * as ga from "react-ga"
 
 interface Person {
   name: string
@@ -15,10 +16,13 @@ const initialData: Person[] = [
 ]
 
 export default function Home() {
+  useEffect(() => {
+    ga.initialize("G-ZF2T3R39MW")
+  }, [])
   const [people, setPeople] = useState(2)
   const [data, setData] = useState<Person[]>(initialData)
   const [debts, setDebts] = useState<string[]>([])
-  function onClick(variation: number) {
+  const onClick = (variation: number) => {
     setPeople(people + variation)
     if (variation > 0) {
       setData([...data, { name: "", paid: 0 }])
