@@ -75,26 +75,26 @@ export default function Home() {
     setData(clearedData)
   }
   return (
-    <main className="h-screen bg-white">
-      <h1 className="text-[48px] bg-gradient-to-r from-green-700 to-green-500 bg-clip-text text-transparent text-center font-bold pt-5">
+    <main className="h-screen bg-main">
+      <h1 className="text-[48px] bg-gradient-to-r animate-gradient-xy from-[#15AB0D] via-[#11C94C] to-white bg-clip-text text-transparent text-center font-bold pt-5">
         G&#120792; Split
       </h1>
-      <div className="flex flex-row items-center justify-center gap-3 mt-6">
+      <div className="flex flex-row items-center justify-center gap-3 mt-6 text-white">
         <Button
           variant="outline"
           size="icon"
-          className="rounded-full bg-red-300"
+          className="rounded-full bg-red-500 border-none"
           onClick={() => onClick(-1)}
           disabled={people <= 2}
         >
           <Minus />
         </Button>
-        <div className="text-black text-2xl font-bold">{people}</div>
+        <div className="text-white text-2xl font-bold">{people}</div>
 
         <Button
           variant="outline"
           size="icon"
-          className="rounded-full bg-green-300"
+          className="rounded-full bg-green-500 border-none"
           onClick={() => onClick(1)}
         >
           <Plus />
@@ -102,7 +102,7 @@ export default function Home() {
       </div>
       <div
         ref={containerRef}
-        className="mt-8 flex flex-col gap-2 p-3 m-2 bg-bento rounded-xl"
+        className="mt-8 flex flex-col gap-2 p-3 m-2 bg-bento shadow-md shadow-black text-white rounded-xl"
       >
         <AnimatePresence>
           {data.map((person, index) => {
@@ -113,14 +113,14 @@ export default function Home() {
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 30 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
               >
                 <Input
                   type="text"
                   value={person.name}
                   placeholder="Name"
                   onChange={(e) => handleNameChange(index, e.target.value)}
-                  className="rounded-xl"
+                  className="rounded-xl bg-main border-none"
                 />
                 <Input
                   type="number"
@@ -129,7 +129,7 @@ export default function Home() {
                   onChange={(e) =>
                     handlePaidChange(index, parseFloat(e.target.value))
                   }
-                  className="rounded-xl w-[75px]"
+                  className="rounded-xl w-[75px] bg-main border-none"
                 />
               </motion.div>
             )
@@ -147,7 +147,7 @@ export default function Home() {
             Number.isNaN(data[1].paid)
           }
         >
-          Calculate
+          Split
         </Button>
         <Button
           className="rounded-xl"
@@ -159,8 +159,8 @@ export default function Home() {
       </div>
       <div
         className={`${
-          debts.length == 0 ? "hidden" : ""
-        } text-black flex flex-col gap-2 bg-bento rounded-xl m-2 text-lg p-4`}
+          debts.length == 0 ? "opacity-0" : "opacity-1"
+        } text-white flex flex-col gap-2 bg-bento shadow-md shadow-black rounded-xl m-2 p-4 transition-opacity duration-500`}
       >
         <AnimatePresence>
           {debts.map((debt, index) => {
@@ -170,7 +170,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -30 }}
                 transition={{ duration: 0.5 }}
-                className="rounded-xl bg-white text-center"
+                className="rounded-xl bg-main text-center p-2"
                 key={index}
               >
                 {debt}
