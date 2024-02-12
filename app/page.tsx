@@ -82,7 +82,7 @@ export default function Home() {
       <h3 className="text-xl font-bold pl-3 text-slate-300">
         Split every expenses,
         <br /> with everyone,
-        on the g&#120792;
+        on the G&#120792;
       </h3>
       <div className="flex flex-row items-center justify-center gap-3 mt-6 text-white">
         <Button
