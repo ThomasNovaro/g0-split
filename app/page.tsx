@@ -27,7 +27,7 @@ export default function Home() {
   const onClick = (variation: number) => {
     setPeople(people + variation)
     if (variation > 0) {
-      setData([...data, { name: "", paid: 0 }])
+      setData([...data, { name: "", paid: NaN }])
     } else {
       const newData = [...data].slice(0, -1)
       setData(newData)
