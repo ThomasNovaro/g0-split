@@ -77,7 +77,7 @@ export default function Home() {
   return (
     <main className="h-screen bg-white">
       <h1 className="text-[48px] bg-gradient-to-r from-green-700 to-green-500 bg-clip-text text-transparent text-center font-bold pt-5">
-        G&#120792; SPLIT
+        G&#120792; Split
       </h1>
       <div className="flex flex-row items-center justify-center gap-3 mt-6">
         <Button
@@ -137,7 +137,16 @@ export default function Home() {
         </AnimatePresence>
       </div>
       <div className="flex flex-row items-center justify-center gap-3 my-6">
-        <Button className="rounded-xl" onClick={() => calculate()}>
+        <Button
+          className="rounded-xl"
+          onClick={() => calculate()}
+          disabled={
+            data[0].name === "" ||
+            Number.isNaN(data[0].paid) ||
+            data[1].name === "" ||
+            Number.isNaN(data[1].paid)
+          }
+        >
           Calculate
         </Button>
         <Button
