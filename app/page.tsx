@@ -150,7 +150,7 @@ export default function Home() {
       </div>
       <div
         className={`${
-          debts.length === 0 ?? "hidden"
+          debts.length == 0 ? "hidden" : ""
         } text-black flex flex-col gap-2 bg-bento rounded-xl m-2 text-lg p-4`}
       >
         <AnimatePresence>
