@@ -76,9 +76,15 @@ export default function Home() {
   }
   return (
     <main className="h-screen bg-main">
-      <h1 className="text-[48px] bg-gradient-to-r animate-gradient-xy from-[#15AB0D] via-[#11C94C] to-white bg-clip-text text-transparent text-center font-bold pt-5">
+      <h1 className="pl-3 text-[55px] bg-gradient-to-r animate-gradient-xy from-[#15AB0D] via-[#11C94C] to-white bg-clip-text text-transparent font-black pt-5">
         G&#120792; Split
       </h1>
+      <h3 className="text-xl font-bold pl-3 text-slate-300">
+        Split every expenses,
+        <br /> with everyone,
+        <br />
+        on the g&#120792;
+      </h3>
       <div className="flex flex-row items-center justify-center gap-3 mt-6 text-white">
         <Button
           variant="outline"
