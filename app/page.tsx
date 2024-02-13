@@ -1,13 +1,19 @@
 "use client"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Plus, Minus } from "lucide-react"
+import { Plus, Minus, MoveRight } from "lucide-react"
 import { useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import { Checkbox } from "@/components/ui/checkbox"
 
 interface Person {
   name: string
   paid: number
+}
+interface Transfer {
+  from: string
+  to: string
+  amount: number
 }
 
 const initialData: Person[] = [
@@ -18,7 +24,7 @@ const initialData: Person[] = [
 export default function Home() {
   const [people, setPeople] = useState(2)
   const [data, setData] = useState<Person[]>(initialData)
-  const [debts, setDebts] = useState<string[]>([])
+  const [debts, setDebts] = useState<Transfer[]>([])
   const containerRef = useRef(null)
   const onClick = (variation: number) => {
     setPeople(people + variation)
@@ -47,7 +53,7 @@ export default function Home() {
       const amountEach = person.paid - each
       debtsMap[person.name] = amountEach
     })
-    const debts: string[] = []
+    const debts: Transfer[] = []
     for (const creditor in debtsMap) {
       for (const debtor in debtsMap) {
         if (debtsMap[creditor] > 0 && debtsMap[debtor] < 0) {
@@ -55,7 +61,7 @@ export default function Home() {
             Math.abs(debtsMap[creditor]),
             Math.abs(debtsMap[debtor])
           )
-          debts.push(`${debtor} -> ${creditor} €${amountToTransfer.toFixed(2)}`)
+          debts.push({ from: debtor, to: creditor, amount: amountToTransfer })
           debtsMap[creditor] -= amountToTransfer
           debtsMap[debtor] += amountToTransfer
         }
@@ -170,10 +176,18 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -30 }}
                 transition={{ duration: 0.5 }}
-                className="rounded-xl bg-main text-center p-2"
+                className="bg-bento flex flex-row justify-center items-center gap-2"
                 key={index}
               >
-                {debt}
+                <Checkbox />
+                <div className="bg-main w-full flex flex-row justify-center items-center align-middle rounded-xl p-2 gap-2">
+                  <div>{debt.from}</div>
+                  <MoveRight />
+                  <div>{debt.to}</div>
+                </div>
+                <div className="bg-main w-full justify-center rounded-xl p-2">
+                  {debt.amount.toFixed(2)}€
+                </div>
               </motion.div>
             )
           })}
