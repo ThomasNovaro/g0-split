@@ -185,7 +185,7 @@ export default function Home() {
                   <MoveRight />
                   <div>{debt.to}</div>
                 </div>
-                <div className="bg-main w-full justify-center rounded-xl p-2">
+                <div className="bg-main w-[75px] justify-center rounded-xl p-2">
                   {debt.amount.toFixed(2)}€
                 </div>
               </motion.div>
