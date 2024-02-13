@@ -1,0 +1,8 @@
+{
+  "name": "G0 Split",
+  "short_name": "G0 Split",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#202020",
+  "theme_color": "#42da3a"
+}
