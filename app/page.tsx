@@ -2,8 +2,7 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Plus, Minus } from "lucide-react"
-import { useEffect, useRef, useState } from "react"
-import * as ga from "react-ga"
+import { useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
 interface Person {
@@ -17,9 +16,6 @@ const initialData: Person[] = [
 ]
 
 export default function Home() {
-  useEffect(() => {
-    ga.initialize("G-ZF2T3R39MW")
-  }, [])
   const [people, setPeople] = useState(2)
   const [data, setData] = useState<Person[]>(initialData)
   const [debts, setDebts] = useState<string[]>([])
