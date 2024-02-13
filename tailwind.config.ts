@@ -56,7 +56,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "gradient-x": "gradient-x 6s ease-in-out infinite alternate",
         "gradient-y": "gradient-y 10s ease-in-out infinite alternate",
-        "gradient-xy": "gradient-xy 10s ease-in-out infinite alternate",
+        "gradient-xy": "gradient-xy 5s ease-in-out infinite alternate",
       },
       boxShadow: {
         perfect:

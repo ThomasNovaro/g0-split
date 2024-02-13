@@ -71,11 +71,11 @@ export default function Home() {
     setData(clearedData)
   }
   return (
-    <main className="h-screen bg-main">
-      <h1 className="pl-3 text-[55px] bg-gradient-to-r animate-gradient-xy from-[#15AB0D] via-[#11C94C] to-white bg-clip-text text-transparent font-black pt-5">
+    <main className="h-screen bg-main -z-10">
+      <h1 className=" z-10 pl-3 text-[55px] bg-gradient-to-br animate-gradient-xy from-[#0baba8] via-[#42da3a]  to-white bg-clip-text text-transparent font-black pt-5">
         G&#120792; Split
       </h1>
-      <h3 className="text-xl font-bold pl-3 text-slate-300">
+      <h3 className="z-10 text-xl font-bold pl-3 text-slate-300">
         Split every expenses,
         <br /> with anyone, on the G&#120792;
       </h3>
