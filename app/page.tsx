@@ -77,7 +77,7 @@ export default function Home() {
     setData(clearedData)
   }
   return (
-    <main className="h-screen bg-main -z-10">
+    <main className="h-screen bg-main -z-10 tablet:px-[100px] laptop:px-[200px] laptop:pt-[50px] notebook:px-[400px] desktop:px-[600px]">
       <h1 className=" z-10 pl-3 text-[55px] bg-gradient-to-br animate-gradient-xy from-[#0baba8] via-[#42da3a]  to-white bg-clip-text text-transparent font-black pt-5">
         G&#120792; Split
       </h1>
@@ -147,10 +147,7 @@ export default function Home() {
           className="rounded-xl"
           onClick={() => calculate()}
           disabled={
-            data[0].name === "" ||
-            Number.isNaN(data[0].paid) ||
-            data[1].name === "" ||
-            Number.isNaN(data[1].paid)
+            data.length != people || data.some((person) => !person.name)
           }
         >
           Split

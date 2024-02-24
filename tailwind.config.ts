@@ -16,6 +16,13 @@ const config = {
       screens: {},
     },
     extend: {
+      screens: {
+        mobile: "320px",
+        tablet: "696px",
+        laptop: "1080px",
+        notebook: "1366px",
+        desktop: "1920px",
+      },
       backgroundImage: (theme) => ({
         gradient: "url('../public/images/Gradient.webp')",
       }),
