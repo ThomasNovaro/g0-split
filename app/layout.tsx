@@ -4,7 +4,7 @@ import "./globals.css"
 import Script from "next/script"
 
 export const metadata: Metadata = {
-  title: "G0 Split",
+  title: "Split Easy",
   description: "Split every expenses, with anyone, on the G0",
 }
 
