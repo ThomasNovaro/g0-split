@@ -2,10 +2,17 @@ import type { Metadata } from "next"
 import { GeistSans } from "geist/font/sans"
 import "./globals.css"
 import Script from "next/script"
+import localFont from "next/font/local"
+
+const SNPro = localFont({
+  src: "./SNPro.ttf",
+  display: "swap",
+  variable: "--font-SNPro",
+})
 
 export const metadata: Metadata = {
-  title: "G0 Split",
-  description: "Split every expenses, with anyone, on the G0",
+  title: "Split Easy",
+  description: "Split every expenses, it's €a$y",
 }
 
 export default function RootLayout({
@@ -28,28 +35,10 @@ export default function RootLayout({
             gtag('config', 'G-ZF2T3R39MW');
           `}
         </Script>
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="public/icons/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="public/icons/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="public/icons/favicon-16x16.png"
-        />
-        <link rel="manifest" href="public/icons/site.webmanifest" />
-        <meta name="msapplication-TileColor" content="#da532c"></meta>
-        <meta name="theme-color" content="#ffffff"></meta>
       </head>
-      <body className={GeistSans.className}>{children}</body>
+      <body className={`${GeistSans.variable} ${SNPro.variable}`}>
+        {children}
+      </body>
     </html>
   )
 }
